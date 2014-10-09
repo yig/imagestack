@@ -1,4 +1,4 @@
-Some simple code to aggregate an image stack (average, median, absolute average deviation, standard error).
+Simple code to load and process image stacks (average, median, absolute average deviation, standard error).
 There are transparency-aware versions of most routines.
 The `imagestack.py` module is generally useful for image stack processing,
 and automates tiling and reassembling an image stack that is too large to fit in memory.
