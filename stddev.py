@@ -1,7 +1,7 @@
 #!/usr/local/bin/python2.7
 
 from numpy import *
-from helpers import *
+from imagestack import *
 
 import sys
 
