@@ -1,3 +1,12 @@
+'''
+## To work around a conflict between PIL and Image.
+## Source: David Goodger's comment at http://sourceforge.net/p/docutils/bugs/137/
+try:
+    import PIL.Image
+    import sys
+    sys.modules['Image'] = PIL.Image
+except ImportError: pass
+'''
 import Image
 from numpy import *
 
