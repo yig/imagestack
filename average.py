@@ -59,15 +59,7 @@ if os.path.exists( outname ):
 
 if tile is not None:
     if tile == 'auto':
-        ## Let's use a maximum of 1 GB of RAM for a stack.
-        ## Let N be the number of images.
-        ## Let M be the amount of memory each image should contribute: 1 GB / N.
-        ## Assuming square floating-point-with-double-precision RGBA images (4*8 bytes per pixel),
-        ## and the need to make a copy of all image data (another factor of 2),
-        ## tiles' pixel edge lengths should be sqrt( 1 GB / (N*4*8) ).
-        pixel_edge_length = max( int( sqrt( float( 1024*1024*1024 ) / ( len( filenames ) * 4*8 * 2 ) ) ), 1 )
-        print 'Automatic tiling with tiles of size:', pixel_edge_length, 'by', pixel_edge_length
-        tile = '%d/%d' % ( pixel_edge_length, pixel_edge_length )
+        tile = tile_parameter_for_1GB( len( filenames ), GB = 1, size_mismatch_behavior = size_mismatch, convert = convert )
     
     try:
         tile = tuple([ int( val ) for val in tile.split('/') ])
