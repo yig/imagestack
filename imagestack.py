@@ -107,7 +107,7 @@ def process_tiled_image_stack_from_filenames( process_image_stack, tile, filenam
     if tile is None:
         return process_image_stack( image_stack_from_filenames( filenames, size_mismatch_behavior = size_mismatch_behavior, convert = convert ) )
     if tile == 'auto':
-        tile = tile_parameter_for_1GB( len( filenames ), convert = convert, dtype = dtype )
+        tile = tile_parameter_for_1GB( len( filenames ), size_mismatch_behavior = size_mismatch_behavior, convert = convert, dtype = dtype )
     
     assert len( tile ) == 2
     tile = tuple( tile )
